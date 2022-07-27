@@ -1,4 +1,4 @@
-# Getting Started with fotos
+# Getting started with fotos
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
