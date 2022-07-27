@@ -23,19 +23,20 @@ const App = () => {
 				<h1>fotos</h1>
 			</header>
 			<main>
-				<section className="gallery"></section>
-				<section className="controls">
-					<div className="btn">
-						<button>previous</button>
+				<section className="gallery row">
+					<div className="col-12"></div>
+				</section>
+				<section className="controls row">
+					<div className="col-6">
+						<button className="btn btn-secondary">previous</button>
 					</div>
-					<div className="btn">
-						<button className="btn btn-danger">next</button>
+					<div className="col-6 text-end">
+						<button className="btn btn-secondary">next</button>
 					</div>
 				</section>
-				<section className="none"></section>
 			</main>
 			<footer>
-				<p>&copy; 2022 - fotos zero rights reserved</p>
+				<p>&copy; 2022 - fotos rights reserved</p>
 			</footer>
 		</div>
 	);
