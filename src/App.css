@@ -1,6 +1,7 @@
 .wrapper {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 header {
 	height: 10vh;
@@ -60,4 +61,12 @@ figcaption {
 	background-repeat: no-repeat;
 	background-position: center;
 	border-radius: 15px 0 0 0;
+}
+.search {
+	margin-bottom: 2rem;
+	padding: 0;
+	box-sizing: border-box;
+}
+input[type="text"]:focus {
+	border: 1px solid #82092d !important;
 }
