@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../store";
 import Photo from "../Photo";
+import pexelsApiRequest from "../../utils/api";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
@@ -18,45 +19,17 @@ const Gallery = () => {
 		});
 
 	useEffect(() => {
-		console.log(
-			`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`
-		);
-
-		/* fetch pexels photos */
-		// fetch(`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`, {
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 		Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
-		// 	},
-		// 	mode: "cors",
-		// })
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
-		// 		console.log(data);
-		// 		console.dir(data);
-		// 		return dispatch(actions.gallery.setPhotos(data.photos));
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log("Attention required on curation response errors:", err);
-		// 	});
+		const url = `https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`;
+		pexelsApiRequest(url)
+			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
+			.catch((e) => console.log(e));
 	}, [page]);
 
 	useEffect(() => {
 		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${limit}`;
-		fetch("url", {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
-			},
-			mode: "cors",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				return dispatch(actions.gallery.setPhotos(data.photos));
-			})
-			.catch((err) => {
-				console.log("Attention required on search response errors:", err);
-			});
+		pexelsApiRequest(url)
+			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
+			.catch((e) => console.log(e));
 	}, [query]);
 
 	return (
