@@ -1,4 +1,4 @@
-const PhotoDisplay = ({ photo }) => {
+const Photo = ({ photo }) => {
 	return (
 		<figure className="col-12 col-sm-4 col-md-3 figure">
 			<div
@@ -13,4 +13,4 @@ const PhotoDisplay = ({ photo }) => {
 	);
 };
 
-export default PhotoDisplay;
+export default Photo;

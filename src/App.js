@@ -1,28 +1,20 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import PhotoDisplay from "./components/PhotoDisplay";
+import { useSelector } from "react-redux";
+import Photo from "./components/Photo";
+import Controls from "./components/Controls";
 
 const App = () => {
 	// get photos
 	const [photos, setPhotos] = useState(null);
-	const [page, setPage] = useState(1);
-	const limit = 10;
-
-	// next handler
-	const nextHandler = () => {
-		setPage(page + 1);
-	};
-
-	// previous handler
-	const previousHandler = () => {
-		setPage(page - 1);
-	};
+	const page = useSelector((state) => state.controls.page);
+	const limit = useSelector((state) => state.controls.limit);
 
 	// display images
 	const gallery =
 		photos &&
 		photos.map((photo) => {
-			return <PhotoDisplay key={photo.id} photo={photo} />;
+			return <Photo key={photo.id} photo={photo} />;
 		});
 
 	// fetch pexels photos
@@ -61,22 +53,7 @@ const App = () => {
 						<div className="row">{gallery}</div>
 					</div>
 				</section>
-				<section className="controls row">
-					<div className="col-6">
-						<button
-							className="btn btn-secondary"
-							disabled={page === 1}
-							onClick={previousHandler}
-						>
-							&lt; previous
-						</button>
-					</div>
-					<div className="col-6 text-end">
-						<button className="btn btn-secondary" onClick={nextHandler}>
-							next &gt;
-						</button>
-					</div>
-				</section>
+				<Controls />
 			</main>
 			<footer>
 				<p>&copy; 2022 - fotos rights reserved</p>
