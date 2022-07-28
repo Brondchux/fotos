@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Photo from "./components/Photo";
 import Controls from "./components/Controls";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
 	// get photos
@@ -44,9 +46,7 @@ const App = () => {
 	// display client
 	return (
 		<div className="wrapper">
-			<header>
-				<h1>fotos</h1>
-			</header>
+			<Header />
 			<main>
 				<section className="gallery row">
 					<div className="col-12">
@@ -55,9 +55,7 @@ const App = () => {
 				</section>
 				<Controls />
 			</main>
-			<footer>
-				<p>&copy; 2022 - fotos rights reserved</p>
-			</footer>
+			<Footer />
 		</div>
 	);
 };
