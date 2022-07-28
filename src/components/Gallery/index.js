@@ -2,7 +2,7 @@ import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../store";
 import Photo from "../Photo";
-import pexelsApiRequest from "../../utils/api";
+import pexelsApiRequest, { BASE_URL } from "../../utils/api";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
@@ -19,15 +19,15 @@ const Gallery = () => {
 		});
 
 	useEffect(() => {
-		const url = `https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`;
-		pexelsApiRequest(url)
+		const url = `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
+		pexelsApiRequest("url")
 			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
 			.catch((e) => console.log(e));
 	}, [page]);
 
 	useEffect(() => {
-		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${limit}`;
-		pexelsApiRequest(url)
+		const url = `${BASE_URL}/search?query=${query}&per_page=${limit}`;
+		pexelsApiRequest("url")
 			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
 			.catch((e) => console.log(e));
 	}, [query]);

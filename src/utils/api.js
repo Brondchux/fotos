@@ -1,4 +1,6 @@
-const pexelsApiRequest = async (url) => {
+export const BASE_URL = "https://api.pexels.com/v1";
+
+const pexelsApiRequest = async (url = "") => {
 	const response = await fetch(url, {
 		method: "GET",
 		headers: {
@@ -7,7 +9,7 @@ const pexelsApiRequest = async (url) => {
 		},
 	});
 	if (!response.ok) {
-		throw new Error(`Ding! Unexpected message from server: ${response.status}`);
+		throw new Error(`Ding! Unexpected message from server: ${response}`);
 	}
 	const data = await response.json();
 	return data;
