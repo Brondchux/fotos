@@ -5,12 +5,18 @@ import PhotoDisplay from "./components/PhotoDisplay";
 const App = () => {
 	// get photos
 	const [photos, setPhotos] = useState(null);
+	const [page, setPage] = useState(1);
+	const limit = 10;
 
-	// next btn handler
-	const nextHandler = () => {};
+	// next handler
+	const nextHandler = () => {
+		setPage(page + 1);
+	};
 
-	// previous btn handler
-	const previousHandler = () => {};
+	// previous handler
+	const previousHandler = () => {
+		setPage(page - 1);
+	};
 
 	// display images
 	const gallery =
@@ -21,7 +27,11 @@ const App = () => {
 
 	// fetch pexels photos
 	// https://api.pexels.com/v1/curated/?page=1&per_page=10
+	// https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}
 	useEffect(() => {
+		console.log(
+			`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`
+		);
 		// fetch("https://api.pexels.com/v1/curated", {
 		// 	headers: {
 		// 		"Content-Type": "application/json",
@@ -37,7 +47,7 @@ const App = () => {
 		// 	.catch((err) => {
 		// 		console.log("Your have these errors:", err);
 		// 	});
-	}, []);
+	}, [page]);
 
 	// display client
 	return (
@@ -55,7 +65,7 @@ const App = () => {
 					<div className="col-6">
 						<button
 							className="btn btn-secondary"
-							disabled={!photos}
+							disabled={page === 1}
 							onClick={previousHandler}
 						>
 							&lt; previous
