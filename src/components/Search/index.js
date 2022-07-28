@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { actions } from "../../store";
 
 const Search = () => {
 	const dispatch = useDispatch();
 	const [search, setSearch] = useState("");
-	const query = useSelector((state) => state.search.query);
 
 	const inputHandler = (e) => {
 		setSearch(e.target.value);
@@ -13,12 +12,9 @@ const Search = () => {
 
 	const searchHandler = (e) => {
 		e.preventDefault();
-		dispatch(actions.search.setQuery(search));
+		search.length && dispatch(actions.search.setQuery(search));
+		setSearch("");
 	};
-
-	useEffect(() => {
-		console.log("you searched:", query);
-	}, [query]);
 
 	return (
 		<section className="search row">

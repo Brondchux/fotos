@@ -54,6 +54,9 @@ figcaption {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+figcaption:hover {
+	background-color: #82092d;
+}
 .image {
 	height: 300px;
 	width: 100%;
@@ -69,4 +72,8 @@ figcaption {
 }
 input[type="text"]:focus {
 	border: 1px solid #82092d !important;
+}
+.highlight {
+	color: #82092d;
+	font-weight: 700;
 }
