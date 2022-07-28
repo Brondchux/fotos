@@ -21,22 +21,22 @@ const Gallery = () => {
 		// 	`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`
 		// );
 		/* fetch pexels photos */
-		fetch(`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`, {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
-			},
-			mode: "cors",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				console.dir(data);
-				return dispatch(actions.gallery.setPhotos(data.photos));
-			})
-			.catch((err) => {
-				console.log("Attention required:", err);
-			});
+		// fetch(`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`, {
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 		Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
+		// 	},
+		// 	mode: "cors",
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		console.log(data);
+		// 		console.dir(data);
+		// 		return dispatch(actions.gallery.setPhotos(data.photos));
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log("Attention required:", err);
+		// 	});
 	}, [page]);
 
 	return (
