@@ -17,9 +17,10 @@ const Gallery = () => {
 		});
 
 	useEffect(() => {
-		// console.log(
-		// 	`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`
-		// );
+		console.log(
+			`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`
+		);
+
 		/* fetch pexels photos */
 		// fetch(`https://api.pexels.com/v1/curated/?page=${page}&per_page=${limit}`, {
 		// 	headers: {
