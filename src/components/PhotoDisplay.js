@@ -1,8 +1,14 @@
 const PhotoDisplay = ({ photo }) => {
 	return (
-		<figure>
-			<img src={photo.url} />
-			<figcaption>{photo.title}</figcaption>
+		<figure className="col-12 col-sm-4 col-md-3 figure">
+			<div
+				title={photo.alt}
+				className="image"
+				style={{ backgroundImage: `url(${photo.src.medium})` }}
+			></div>
+			<figcaption className="figure-caption">
+				📸 {photo.photographer}
+			</figcaption>
 		</figure>
 	);
 };

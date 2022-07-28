@@ -1,20 +1,39 @@
 import "./App.css";
-import { useState } from "react";
-import { album } from "./Seed";
+import { useEffect, useState } from "react";
 import PhotoDisplay from "./components/PhotoDisplay";
 
 const App = () => {
 	// get photos
-	const [photos, setPhotos] = useState(album);
+	const [photos, setPhotos] = useState([]);
 
 	// next btn handler
+	const nextHandler = () => {};
 
 	// previous btn handler
+	const previousHandler = () => {};
 
 	// display images
-	const gallery = photos.map((photo) => {
-		return <PhotoDisplay key={photo.id} photo={photo} />;
-	});
+	const gallery =
+		photos.length &&
+		photos.map((photo) => {
+			return <PhotoDisplay key={photo.id} photo={photo} />;
+		});
+
+	// fetch pexels photos
+	useEffect(() => {
+		fetch("https://api.pexels.com/v1/curated/?page=1&per_page=10", {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
+			},
+			mode: "cors",
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				return setPhotos(data.photos);
+			});
+	}, []);
 
 	// display client
 	return (
@@ -24,14 +43,20 @@ const App = () => {
 			</header>
 			<main>
 				<section className="gallery row">
-					<div className="col-12"></div>
+					<div className="col-12">
+						<div className="row">{gallery}</div>
+					</div>
 				</section>
 				<section className="controls row">
 					<div className="col-6">
-						<button className="btn btn-secondary">previous</button>
+						<button className="btn btn-secondary" onClick={previousHandler}>
+							previous
+						</button>
 					</div>
 					<div className="col-6 text-end">
-						<button className="btn btn-secondary">next</button>
+						<button className="btn btn-secondary" onClick={nextHandler}>
+							next
+						</button>
 					</div>
 				</section>
 			</main>

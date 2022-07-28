@@ -30,8 +30,9 @@ main {
 }
 .gallery {
 	min-height: 50vh;
-	background-color: #888;
+	background-color: rgb(221, 221, 221, 0.4);
 	border-radius: 5px;
+	padding: 1rem;
 }
 .controls {
 	margin-top: 2rem;
@@ -42,4 +43,21 @@ main {
 .btn {
 	background-color: #82092d !important;
 	font-size: 1.5rem;
+}
+figcaption {
+	color: #fff !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0.5rem;
+	border-radius: 0 0 15px 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.image {
+	height: 300px;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 15px 0 0 0;
 }

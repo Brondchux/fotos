@@ -45,4 +45,29 @@ export const album = [
 		title: "Photo 5",
 		url: "https://resizing.flixster.com/mUNN6qe9Ihh5j6ASSKW6y0LAMJQ=/300x300/v2/https://flxt.tmsimg.com/assets/p10702874_b_v9_ak.jpg",
 	},
+	{
+		id: 6,
+		title: "Photo 6",
+		url: "https://static.dezeen.com/uploads/2021/04/ultimate-collectors-cars_dezeen_2364_sq_0-300x300.jpg",
+	},
+	{
+		id: 7,
+		title: "Photo 7",
+		url: "https://forgeline.com/wp-content/uploads/2018/12/2-Kenseth-7E2A4607-300x300.jpg",
+	},
+	{
+		id: 8,
+		title: "Photo 8",
+		url: "https://i.ytimg.com/an/ZaJKztA0bF0/46719088-c9e0-4b01-9726-594cd1f439bc_mq.jpg",
+	},
+	{
+		id: 9,
+		title: "Photo 9",
+		url: "https://chicagocarclub.com/wp-content/uploads/2016/07/rep2-300x300.jpg",
+	},
+	{
+		id: 10,
+		title: "Photo 10",
+		url: "https://resizing.flixster.com/mUNN6qe9Ihh5j6ASSKW6y0LAMJQ=/300x300/v2/https://flxt.tmsimg.com/assets/p10702874_b_v9_ak.jpg",
+	},
 ];
