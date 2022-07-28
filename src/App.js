@@ -4,7 +4,7 @@ import PhotoDisplay from "./components/PhotoDisplay";
 
 const App = () => {
 	// get photos
-	const [photos, setPhotos] = useState([]);
+	const [photos, setPhotos] = useState(null);
 
 	// next btn handler
 	const nextHandler = () => {};
@@ -14,25 +14,29 @@ const App = () => {
 
 	// display images
 	const gallery =
-		photos.length &&
+		photos &&
 		photos.map((photo) => {
 			return <PhotoDisplay key={photo.id} photo={photo} />;
 		});
 
 	// fetch pexels photos
+	// https://api.pexels.com/v1/curated/?page=1&per_page=10
 	useEffect(() => {
-		fetch("https://api.pexels.com/v1/curated/?page=1&per_page=10", {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
-			},
-			mode: "cors",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				return setPhotos(data.photos);
-			});
+		// fetch("https://api.pexels.com/v1/curated", {
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 		Authorization: `${process.env.REACT_APP_PEXEL_KEY}`,
+		// 	},
+		// 	mode: "cors",
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		console.log(data);
+		// 		return setPhotos(data.photos);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log("Your have these errors:", err);
+		// 	});
 	}, []);
 
 	// display client
@@ -49,13 +53,17 @@ const App = () => {
 				</section>
 				<section className="controls row">
 					<div className="col-6">
-						<button className="btn btn-secondary" onClick={previousHandler}>
-							previous
+						<button
+							className="btn btn-secondary"
+							disabled={!photos}
+							onClick={previousHandler}
+						>
+							&lt; previous
 						</button>
 					</div>
 					<div className="col-6 text-end">
 						<button className="btn btn-secondary" onClick={nextHandler}>
-							next
+							next &gt;
 						</button>
 					</div>
 				</section>

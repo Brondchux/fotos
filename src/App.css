@@ -37,7 +37,7 @@ main {
 .controls {
 	margin-top: 2rem;
 	padding: 1rem;
-	background-color: #ccc;
+	background-color: rgb(221, 221, 221, 0.6);
 	border-radius: 5px;
 }
 .btn {
