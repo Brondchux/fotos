@@ -14,24 +14,19 @@ const Gallery = () => {
 	const photos = useSelector((state) => state.gallery.photos);
 	const query = useSelector((state) => state.search.query);
 	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
+	const url = query
+		? `${BASE_URL}/search?query=${query}&page=${page}&per_page=${limit}`
+		: `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
 
 	useEffect(() => {
 		lookup && lookup.length && dispatch(actions.search.setQuery(lookup));
 	}, [lookup]);
 
 	useEffect(() => {
-		const url = `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
-		pexelsApiRequest("url")
+		pexelsApiRequest(url)
 			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
 			.catch((e) => console.log(e));
-	}, [page]);
-
-	useEffect(() => {
-		const url = `${BASE_URL}/search?query=${query}&per_page=${limit}`;
-		pexelsApiRequest("url")
-			.then((data) => dispatch(actions.gallery.setPhotos(data.photos)))
-			.catch((e) => console.log(e));
-	}, [query]);
+	}, [query, page]);
 
 	return (
 		<Fragment>
