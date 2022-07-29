@@ -11,6 +11,9 @@ const controlsSlice = createSlice({
 		decrement(state) {
 			state.page--;
 		},
+		setPage(state, { payload }) {
+			state.page = payload;
+		},
 	},
 });
 
