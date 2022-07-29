@@ -1,3 +1,6 @@
+body {
+	background-color: #000 !important;
+}
 .wrapper {
 	padding: 0;
 	margin: 0;
@@ -14,9 +17,9 @@ header h1 {
 	font-size: 4rem;
 }
 footer {
-	min-height: 5vh;
+	min-height: 8vh;
 	background-color: #000;
-	border-top: 10px solid #82092d;
+	border-top: 15px solid #82092d;
 	color: #fff;
 	display: flex;
 }
@@ -24,16 +27,16 @@ footer p {
 	margin: auto;
 }
 main {
-	min-height: 85vh;
+	min-height: 82vh;
 	max-width: 1200px;
 	margin: auto;
 	padding: 3rem;
 }
 .gallery {
 	min-height: 50vh;
-	background-color: rgb(221, 221, 221, 0.4);
+	/* background-color: rgb(221, 221, 221, 0.4); */
 	border-radius: 5px;
-	padding: 1rem;
+	/* padding: 1rem; */
 }
 .controls {
 	margin-top: 2rem;
@@ -53,9 +56,12 @@ figcaption {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	background-color: #82092d;
 }
 figcaption:hover {
-	background-color: #82092d;
+	background-color: #fff;
+	color: #82092d !important;
+	font-weight: 700;
 }
 .image {
 	height: 300px;
@@ -64,6 +70,8 @@ figcaption:hover {
 	background-repeat: no-repeat;
 	background-position: center;
 	border-radius: 15px 0 0 0;
+	border: 2px solid #fff;
+	border-bottom: 0;
 }
 .search {
 	margin-bottom: 2rem;
@@ -73,7 +81,7 @@ figcaption:hover {
 input[type="text"]:focus {
 	border: 1px solid #82092d !important;
 }
-.highlight {
-	color: #82092d;
+.cancel {
+	color: #bf0c42;
 	font-weight: 700;
 }
