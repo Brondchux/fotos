@@ -1,13 +1,12 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { actions } from "../../store";
 import pexelsApiRequest, { BASE_URL } from "../../utils/api";
 import Photo from "../Photo";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 	const { lookup } = useParams();
 
 	const page = useSelector((state) => state.controls.page);
