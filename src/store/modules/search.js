@@ -8,6 +8,9 @@ const searchSlice = createSlice({
 		setQuery(state, { payload }) {
 			state.query = payload;
 		},
+		resetQuery(state) {
+			state.query = null;
+		},
 	},
 });
 

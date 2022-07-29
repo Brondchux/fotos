@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { actions } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
-	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [search, setSearch] = useState("");
 
 	const inputHandler = (e) => {
@@ -12,7 +11,7 @@ const Search = () => {
 
 	const searchHandler = (e) => {
 		e.preventDefault();
-		search.length && dispatch(actions.search.setQuery(search));
+		search.length && navigate(`/search/${search}`);
 		setSearch("");
 	};
 

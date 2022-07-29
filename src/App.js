@@ -1,20 +1,17 @@
 import "./App.css";
-import Controls from "./components/Controls";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
-import Search from "./components/Search";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Preview from "./pages/Preview";
 
 const App = () => {
 	return (
 		<div className="wrapper">
-			<Header />
-			<main>
-				<Search />
-				<Gallery />
-				<Controls />
-			</main>
-			<Footer />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/search/:lookup" element={<Home />} />
+				<Route path="/preview/:id" element={<Preview />} />
+				<Route path="*" element={<Home />} />
+			</Routes>
 		</div>
 	);
 };
