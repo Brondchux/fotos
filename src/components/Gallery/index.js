@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { actions } from "../../store";
 import Photo from "../Photo";
 import Loader from "../Loader";
+import { delay } from "../../utils/helper";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
@@ -13,9 +14,9 @@ const Gallery = () => {
 	const limit = useSelector((state) => state.controls.limit);
 	const photos = useSelector((state) => state.gallery.photos);
 	const query = useSelector((state) => state.search.query);
+	const loading = useSelector((state) => state.loader.loading);
 	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
 	const [initialLoad, setinitialLoad] = useState(true);
-	const [toggleLoader, setToggleLoader] = useState(false);
 	const url = query
 		? `${BASE_URL}/search?query=${query}&page=${page}&per_page=${limit}`
 		: `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
@@ -25,37 +26,37 @@ const Gallery = () => {
 		localStorage.setItem("albumPage", JSON.stringify(number));
 	};
 
-	const easeOutLoader = (state) => {
+	const easeOutLoader = () => {
 		setTimeout(() => {
-			setToggleLoader(state);
-		}, 500);
+			dispatch(actions.loader.setLoading(false));
+		}, delay);
 	};
 
 	const apiCall = useCallback(async () => {
-		setToggleLoader(true);
+		dispatch(actions.loader.setLoading(true));
 		await pexelsApiRequest(url)
 			.then((data) => {
 				storeAlbum(data.photos, page);
 				dispatch(actions.gallery.setPhotos(data.photos));
-				easeOutLoader(false);
+				easeOutLoader();
 			})
 			.catch((e) => {
 				console.log(e);
-				easeOutLoader(false);
+				easeOutLoader();
 			});
 	}, [query, page]);
 
 	const fetchAlbum = () => {
-		setToggleLoader(true);
+		dispatch(actions.loader.setLoading(true));
 		const album = localStorage.getItem("album");
 		const albumPage = localStorage.getItem("albumPage");
 		if (album && albumPage) {
 			dispatch(actions.gallery.setPhotos(JSON.parse(album)));
 			dispatch(actions.controls.setPage(JSON.parse(albumPage)));
-			easeOutLoader(false);
+			easeOutLoader();
 			return true;
 		}
-		easeOutLoader(false);
+		easeOutLoader();
 		return false;
 	};
 
@@ -80,7 +81,7 @@ const Gallery = () => {
 
 	return (
 		<Fragment>
-			{toggleLoader && <Loader />}
+			{loading && <Loader />}
 			{query && (
 				<section className="row mb-3">
 					<div className="col-12 col-md-6 text-center text-md-start">

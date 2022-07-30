@@ -22,7 +22,6 @@ const Picture = () => {
 	const apiCall = useCallback(async () => {
 		await pexelsApiRequest(url)
 			.then((data) => {
-				console.log(data);
 				setPexelUrl(data.url);
 				setSrc(data.src.portrait);
 				setAlt(data.alt);

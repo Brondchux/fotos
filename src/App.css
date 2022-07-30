@@ -104,7 +104,7 @@ figcaption:hover {
 	font-weight: 700;
 }
 .spinner {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
