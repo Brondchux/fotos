@@ -5,7 +5,11 @@ import { Link, useParams } from "react-router-dom";
 import { actions } from "../../store";
 import Photo from "../Photo";
 import Loader from "../Loader";
-import { delay } from "../../utils/helper";
+import {
+	delay,
+	fetchLocalStorage,
+	storeLocalStorage,
+} from "../../utils/helper";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
@@ -15,15 +19,15 @@ const Gallery = () => {
 	const photos = useSelector((state) => state.gallery.photos);
 	const query = useSelector((state) => state.search.query);
 	const loading = useSelector((state) => state.loader.loading);
-	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
 	const [initialLoad, setinitialLoad] = useState(true);
+	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
 	const url = query
 		? `${BASE_URL}/search?query=${query}&page=${page}&per_page=${limit}`
 		: `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
 
 	const storeAlbum = (pictures, number) => {
-		localStorage.setItem("album", JSON.stringify(pictures));
-		localStorage.setItem("albumPage", JSON.stringify(number));
+		storeLocalStorage("album", pictures);
+		storeLocalStorage("albumPage", number);
 	};
 
 	const easeOutLoader = () => {
@@ -48,11 +52,11 @@ const Gallery = () => {
 
 	const fetchAlbum = () => {
 		dispatch(actions.loader.setLoading(true));
-		const album = localStorage.getItem("album");
-		const albumPage = localStorage.getItem("albumPage");
+		const album = fetchLocalStorage("album");
+		const albumPage = fetchLocalStorage("albumPage");
 		if (album && albumPage) {
-			dispatch(actions.gallery.setPhotos(JSON.parse(album)));
-			dispatch(actions.controls.setPage(JSON.parse(albumPage)));
+			dispatch(actions.gallery.setPhotos(album));
+			dispatch(actions.controls.setPage(albumPage));
 			easeOutLoader();
 			return true;
 		}
@@ -67,13 +71,10 @@ const Gallery = () => {
 	useEffect(() => {
 		if (initialLoad) {
 			const res = fetchAlbum();
-			if (!res) {
-				apiCall();
-			}
+			!res && apiCall();
 		} else {
 			apiCall();
 		}
-
 		return () => {
 			setinitialLoad(false);
 		};

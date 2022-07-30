@@ -14,3 +14,18 @@ export const easeOutLoaders = (fxn = () => {}) => {
 };
 
 export const delay = 500;
+
+export const fetchLocalStorage = (name) => {
+	if (!name) return null;
+	const data = localStorage.getItem(name);
+	if (data) {
+		return JSON.parse(data);
+	}
+	return null;
+};
+
+export const storeLocalStorage = (name, data) => {
+	if (!name) return null;
+	localStorage.setItem(name, JSON.stringify(data));
+	return true;
+};
