@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
+import constants from "../../utils/constants";
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 	return (
 		<footer>
 			<p>
-				&copy; {currentYear} fotos -{" "}
-				<Link to={"//www.gospelchukwu.com/"} target={"_blank"} rel="noopener">
-					Gospel Chukwu
+				&copy; {currentYear} {constants.BRAND.NAME} -{" "}
+				<Link
+					to={`//${constants.ENGINEER.PORTFOLIO}`}
+					target={"_blank"}
+					rel="noopener"
+				>
+					{constants.ENGINEER.NAME}
 				</Link>{" "}
 				-{" "}
-				<Link to={"//www.pexels.com"} target={"_blank"} rel="noopener">
-					Photos provided by Pexels
+				<Link
+					to={`//${constants.CREDITS.PEXELS.URL}`}
+					target={"_blank"}
+					rel="noopener"
+				>
+					{constants.CREDITS.PEXELS.COPY}
 				</Link>
 			</p>
 		</footer>

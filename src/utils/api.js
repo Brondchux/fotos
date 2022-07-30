@@ -9,7 +9,7 @@ const pexelsApiRequest = async (url = "") => {
 		},
 	});
 	if (!response.ok) {
-		throw new Error(`Ding! Unexpected message from server: ${response}`);
+		throw new Error(`Ding! Unexpected message from server: ${response.status}`);
 	}
 	const data = await response.json();
 	return data;
