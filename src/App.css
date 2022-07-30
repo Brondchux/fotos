@@ -114,3 +114,13 @@ figcaption:hover {
 	height: 100%;
 	z-index: 50000;
 }
+.bio h3 {
+	font-size: 2.5rem;
+	color: var(--light-wine);
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+.bio p {
+	font-size: 1.8rem;
+	color: var(--white);
+}
