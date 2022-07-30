@@ -5,14 +5,12 @@ import Preview from "./pages/Preview";
 
 const App = () => {
 	return (
-		<div className="wrapper">
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/search/:searched" element={<Home />} />
-				<Route path="/preview/:id" element={<Preview />} />
-				<Route path="*" element={<Home />} />
-			</Routes>
-		</div>
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/search/:searched" element={<Home />} />
+			<Route path="/preview/:id" element={<Preview />} />
+			<Route path="*" element={<Home />} />
+		</Routes>
 	);
 };
 

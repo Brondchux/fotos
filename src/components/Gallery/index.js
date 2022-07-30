@@ -65,19 +65,19 @@ const Gallery = () => {
 	return (
 		<Fragment>
 			{query && (
-				<section className="row mb-2">
-					<div className="col-12 col-sm-6 p-0 text-center text-sm-start">
+				<section className="row mb-3">
+					<div className="col-12 col-md-6 text-center text-md-start">
 						<h2 className="h2 text-light">Showing results for {query}</h2>
 					</div>
-					<div className="col-12 col-sm-6 text-center text-sm-end p-0 text-end">
+					<div className="col-12 col-md-6 text-center text-md-end text-end">
 						<span className="h2 cancel" onClick={resetSearchHandler}>
-							<Link to={"/"}> cancel</Link>
+							<Link to={"/"}>cancel</Link>
 						</span>
 					</div>
 				</section>
 			)}
-			<section className="gallery row">
-				<div className="col-12 p-0">
+			<section className="gallery row mt-2">
+				<div className="col-12">
 					<div className="row">
 						{photos &&
 							photos.map((photo) => <Photo key={photo.id} photo={photo} />)}

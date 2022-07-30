@@ -14,19 +14,19 @@ const Controls = () => {
 	};
 
 	return (
-		<section className="controls row">
+		<section className="row my-3">
 			<div className="col-6">
 				<button
-					className="btn btn-secondary"
+					className="btn btn-secondary circle"
 					disabled={page < 2}
 					onClick={previousHandler}
 				>
-					&lt; previous
+					&lt;
 				</button>
 			</div>
 			<div className="col-6 text-end">
-				<button className="btn btn-secondary" onClick={nextHandler}>
-					next &gt;
+				<button className="btn btn-secondary circle" onClick={nextHandler}>
+					&gt;
 				</button>
 			</div>
 		</section>

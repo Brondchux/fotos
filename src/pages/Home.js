@@ -9,7 +9,7 @@ const Home = () => {
 	return (
 		<Fragment>
 			<Header />
-			<main>
+			<main className="container">
 				<Search />
 				<Gallery />
 				<Controls />

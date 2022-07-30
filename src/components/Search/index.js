@@ -17,7 +17,7 @@ const Search = () => {
 
 	return (
 		<section className="search row">
-			<section className="col-12 p-0">
+			<section className="col-12">
 				<form onSubmit={searchHandler}>
 					<div className="input-group">
 						<input

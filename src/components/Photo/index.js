@@ -4,7 +4,7 @@ const Photo = ({ photo }) => {
 	const url = photo.photographer_url.slice(8, photo.photographer_url.length);
 
 	return (
-		<figure className="col-12 col-sm-4 col-md-3 figure">
+		<figure className="col-12 col-sm-6 col-md-4 col-lg-3 figure mb-5">
 			<div
 				title={photo.alt}
 				className="image"
