@@ -4,7 +4,11 @@ import { actions } from "../../store";
 
 const Header = () => {
 	const dispatch = useDispatch();
-	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
+	const resetSearchHandler = () => {
+		dispatch(actions.search.resetQuery());
+		localStorage.removeItem("album");
+		localStorage.removeItem("albumPage");
+	};
 
 	return (
 		<header>

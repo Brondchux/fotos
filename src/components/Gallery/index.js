@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { actions } from "../../store";
 import Photo from "../Photo";
+import Loader from "../Loader";
 
 const Gallery = () => {
 	const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Gallery = () => {
 	const query = useSelector((state) => state.search.query);
 	const resetSearchHandler = () => dispatch(actions.search.resetQuery());
 	const [initialLoad, setinitialLoad] = useState(true);
+	const [toggleLoader, setToggleLoader] = useState(false);
 	const url = query
 		? `${BASE_URL}/search?query=${query}&page=${page}&per_page=${limit}`
 		: `${BASE_URL}/curated/?page=${page}&per_page=${limit}`;
@@ -23,23 +25,37 @@ const Gallery = () => {
 		localStorage.setItem("albumPage", JSON.stringify(number));
 	};
 
+	const easeOutLoader = (state) => {
+		setTimeout(() => {
+			setToggleLoader(state);
+		}, 500);
+	};
+
 	const apiCall = useCallback(async () => {
+		setToggleLoader(true);
 		await pexelsApiRequest(url)
 			.then((data) => {
 				storeAlbum(data.photos, page);
 				dispatch(actions.gallery.setPhotos(data.photos));
+				easeOutLoader(false);
 			})
-			.catch((e) => console.log(e));
+			.catch((e) => {
+				console.log(e);
+				easeOutLoader(false);
+			});
 	}, [query, page]);
 
 	const fetchAlbum = () => {
+		setToggleLoader(true);
 		const album = localStorage.getItem("album");
 		const albumPage = localStorage.getItem("albumPage");
 		if (album && albumPage) {
 			dispatch(actions.gallery.setPhotos(JSON.parse(album)));
 			dispatch(actions.controls.setPage(JSON.parse(albumPage)));
+			easeOutLoader(false);
 			return true;
 		}
+		easeOutLoader(false);
 		return false;
 	};
 
@@ -64,6 +80,7 @@ const Gallery = () => {
 
 	return (
 		<Fragment>
+			{toggleLoader && <Loader />}
 			{query && (
 				<section className="row mb-3">
 					<div className="col-12 col-md-6 text-center text-md-start">
