@@ -72,7 +72,7 @@ const Picture = () => {
 								<p>{alt}</p>
 								<p>#{pictureId}</p>
 								<p>
-									{height} x {width}
+									{height}h x {width}w
 								</p>
 							</div>
 						)}
