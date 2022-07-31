@@ -58,9 +58,10 @@ search resource and display the results to the user, along with pagination, if n
 ## Developers Getting Started
 
 1. Clone repo from github https://github.com/Brondchux/fotos/
-2. Using NPM or Yarn, run "npm i"
-3. View deployement on http://localhost:3000
-4. Enjoy displayed photos or search for your favourite
+2. Using NPM, run "npm i"
+3. Then run "npm start"
+4. View deployement on http://localhost:3000
+5. Enjoy displayed curated photos or search for your favourite
 
 ---
 
