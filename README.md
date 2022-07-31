@@ -1,70 +1,116 @@
-# Getting started with fotos
+# 4to's - fun fotos for free!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+4to's is a web app that welcomes our visitors with a selection of curated photos from Pexels and giveas them the ability to search our extensive
+catalog of quality photos from professional photographers using a text input and displays the photos in series of 10 photos at a time.
 
-In the project directory, you can run:
+This project will be developed using ReactJS, Pexels API, Fetch, Git, ReactJS, NPM Modules, HTML5, Bootstrap. For live deployement, we will be using TBA.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Content
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. [Project Description](https://github.com/Brondchux/fotos#project-description)
+2. [User Story](https://github.com/Brondchux/fotos#user-story)
+3. [Acceptance Criteria](https://github.com/Brondchux/fotos#acceptance-criteria)
+4. [Developers Getting Started](https://github.com/Brondchux/fotos#developers-getting-started)
+5. [Mock-Up Preview](https://github.com/Brondchux/fotos#mock-up-preview)
+6. [Useful Links](https://github.com/Brondchux/fotos#useful-links)
+7. [Tech Stack](https://github.com/Brondchux/fotos#tech-stack)
+8. [Contributors](https://github.com/Brondchux/fotos#contributors)
+9. [Credits](https://github.com/Brondchux/fotos#credits)
+10. [License](https://github.com/Brondchux/fotos#license)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## User Story
 
-### `npm run build`
+```md
+As a user visiting the website...
+I can see an initial set of curated photos on the home screen
+I am able to access the the photographerʼs name and url if those details are available for
+every photo
+I can paginate the list of curated photos
+I can use a text input to search for photos Iʼm interested
+I can see the results of my search in the photo viewing area
+I can paginate search results if needed
+I should not be shown the "previous" paginiation button when there is no previous page
+I can refresh my browser and retain my search query and/or page
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Acceptance Criteria
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```md
+Display 10 curated photos on the home screen. Use the Pexels curated photos resource to
+render these photos.
+Provide pagination for Curated photos. Paging should not cause a page refresh. From the
+client side initiate the needed requests to allow the user to go forward and backward 10
+photos at a time
+Provide a photo search. Searching should not cause a page refresh. Consume the photo
+search resource and display the results to the user, along with pagination, if needed
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Developers Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone repo from github https://github.com/Brondchux/fotos/
+2. Using NPM or Yarn, run "npm i"
+3. View deployement on http://localhost:3000
+4. Enjoy displayed photos or search for your favourite
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Mock-Up Preview
 
-## Learn More
+The following photo(s) shows a preview of the application in production mode
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Gallery display of photos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ![Photos of random items from pexels.](./src/assets/images/gallery.png)
 
-### Code Splitting
+2. Picture displays a photo selected by the user
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ![A display of the photo based on the users request.](./src/assets/images/picture.png)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Useful Links
 
-### Making a Progressive Web App
+1. 🗂 View the repository on [Github](https://github.com/Brondchux/fotos/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![html5 logo](./src/assets/images/techs/html5.png)
+![npm logo](./src/assets/images/techs/npm.png)
+![reactjs logo](./src/assets/images/techs/reactjs.png)
+![git logo](./src/assets/images/techs/github.png)
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributors
 
-### `npm run build` fails to minify
+Gospel Chukwu [@brondchux](https://github.com/Brondchux/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Want to contribute? ping me brondchux@gmail.com
+
+---
+
+## Credits
+
+[Rokt](https://www.rokt.com/) for giving me this frontend engineer assessment opportunity.
+
+[Pexels API](https://www.pexels.com/api/documentation/) for making this api available with good documentation.
+
+Special thanks to [Google](https://www.google.com/) for helping us find the accurate answers to our questions in a very timely manner.
+
+---
+
+## License
+
+[![LICENSE](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
