@@ -42,6 +42,7 @@ const Gallery = () => {
 			.then((data) => {
 				storeAlbum(data.photos, page);
 				dispatch(actions.gallery.setPhotos(data.photos));
+				setinitialLoad(false);
 				easeOutLoader();
 			})
 			.catch((e) => {

@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { actions } from "../../store";
 
 const Search = () => {
 	const navigate = useNavigate();
 	const [search, setSearch] = useState("");
+	const dispatch = useDispatch();
+	const resetPageCount = 1;
 
 	const inputHandler = (e) => {
 		setSearch(e.target.value);
@@ -11,6 +15,7 @@ const Search = () => {
 
 	const searchHandler = (e) => {
 		e.preventDefault();
+		dispatch(actions.controls.setPage(resetPageCount));
 		search.length && navigate(`/search/${search}`);
 		setSearch("");
 	};
