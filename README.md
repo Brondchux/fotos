@@ -61,7 +61,8 @@ search resource and display the results to the user, along with pagination, if n
 2. Using NPM, run "npm i"
 3. Then run "npm start"
 4. View deployement on http://localhost:3000
-5. Enjoy displayed curated photos or search for your favourite
+5. Click on next or previous arrows to see another batch of curated photos
+6. Search for your favourite type of photos, enjoy!
 
 ---
 
