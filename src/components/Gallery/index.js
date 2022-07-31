@@ -86,7 +86,12 @@ const Gallery = () => {
 			{query && (
 				<section className="row mb-3">
 					<div className="col-12 col-md-6 text-center text-md-start">
-						<h2 className="h2 text-light">Showing results for {query}</h2>
+						{photos && photos.length > 0 && (
+							<h2 className="h2 text-light">Showing results for {query}</h2>
+						)}
+						{photos && !photos.length && (
+							<h2 className="h2 text-light">No results found for {query}</h2>
+						)}
 					</div>
 					<div className="col-12 col-md-6 text-center text-md-end text-end">
 						<span className="h2 cancel" onClick={resetSearchHandler}>
@@ -99,6 +104,7 @@ const Gallery = () => {
 				<div className="col-12">
 					<div className="row">
 						{photos &&
+							photos.length > 0 &&
 							photos.map((photo) => <Photo key={photo.id} photo={photo} />)}
 					</div>
 				</div>
