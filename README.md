@@ -61,6 +61,7 @@ search resource and display the results to the user, along with pagination, if n
 2. Navigate to fotos folder on your terminal
 3. Using NPM, run "npm i"
 4. Obtain your [Pexels API key here](https://www.pexels.com/onboarding)
+   ![Guide to obtaining API KEY](./src/assets/images/pexels-api-key.png)
 5. Navigate to .env file in the root folder and add your API key as value for REACT_APP_PEXEL_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 6. Then run "npm start"
 7. View deployement on http://localhost:3000
