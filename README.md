@@ -61,7 +61,7 @@ search resource and display the results to the user, along with pagination, if n
 2. Navigate to fotos folder on your terminal
 3. Using NPM, run "npm i"
 4. Obtain your [Pexels API key here](https://www.pexels.com/onboarding)
-5. Navigate to .env file in the root folder and add your API key as value for REACT_APP_PEXEL_KEY
+5. Navigate to .env file in the root folder and add your API key as value for REACT_APP_PEXEL_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 6. Then run "npm start"
 7. View deployement on http://localhost:3000
 8. Click on next or previous arrows to see another batch of curated photos
@@ -91,9 +91,12 @@ The following photo(s) shows a preview of the application in production mode
 
 ## Tech Stack
 
-![html5 logo](./src/assets/images/techs/html5.png)
-![npm logo](./src/assets/images/techs/npm.png)
 ![reactjs logo](./src/assets/images/techs/reactjs.png)
+![pexels logo](./src/assets/images/techs/pexels.png)
+![npm logo](./src/assets/images/techs/npm.png)
+
+![bootstrap logo](./src/assets/images/techs/bootstrap.png)
+![html5 logo](./src/assets/images/techs/html5.png)
 ![git logo](./src/assets/images/techs/github.png)
 
 ---
@@ -112,7 +115,7 @@ Want to contribute? ping me brondchux@gmail.com
 
 [Pexels API](https://www.pexels.com/api/documentation/) for making this api available with good documentation.
 
-Special thanks to [Google](https://www.google.com/) for helping us find the accurate answers to our questions in a very timely manner.
+Special thanks to [Google](https://www.google.com/) for helping find accurate answers to my million questions in a very timely manner.
 
 ---
 
