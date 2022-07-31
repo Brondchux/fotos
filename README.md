@@ -2,7 +2,7 @@
 
 ## Project Description
 
-4to's is a web app that welcomes our visitors with a selection of curated photos from Pexels and giveas them the ability to search our extensive
+4to's is a web app that welcomes our visitors with a selection of curated photos from Pexels and gives them the ability to search our extensive
 catalog of quality photos from professional photographers using a text input and displays the photos in series of 10 photos at a time.
 
 This project will be developed using ReactJS, Pexels API, Fetch, Git, ReactJS, NPM Modules, HTML5, Bootstrap. For live deployement, we will be using TBA.
