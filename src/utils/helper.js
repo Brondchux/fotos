@@ -6,13 +6,6 @@ export const extractUrl = (url) => {
 	return validUrl;
 };
 
-export const easeOutLoaders = (fxn = () => {}) => {
-	if (!fxn) return;
-	setTimeout(() => {
-		return fxn();
-	}, 3500);
-};
-
 export const delay = 500;
 
 export const fetchLocalStorage = (name) => {
