@@ -5,7 +5,7 @@
 4to's is a web app that welcomes our visitors with a selection of curated photos from Pexels and gives them the ability to search our extensive
 catalog of quality photos from professional photographers using a text input and displays the photos in series of 10 photos at a time.
 
-This project will be developed using ReactJS, Pexels API, Fetch, Git, ReactJS, NPM Modules, HTML5, Bootstrap. For live deployement, we will be using TBA.
+This project will be developed using ReactJS, Pexels API, Fetch, Git, ReactJS, NPM Modules, HTML5, Bootstrap. For live deployement, we will be using Vercel.
 
 ---
 
@@ -88,6 +88,7 @@ The following photo(s) shows a preview of the application in production mode
 ## Useful Links
 
 1. 🗂 View the repository on [Github](https://github.com/Brondchux/fotos/)
+2. 🌍 This app is deployed with [Vercel](https://fotos-eta.vercel.app/)
 
 ---
 
